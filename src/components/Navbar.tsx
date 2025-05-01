@@ -1,42 +1,41 @@
-"use client";
+"use client"
 import { useState } from 'react';
 import Link from 'next/link';
 import ModeToggle from './ModeToggle';
 import { Button } from './ui/button';
+import { signOut } from 'next-auth/react';
 
-const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false); // Start closed
+const Navbar = async () => {
+  const [isOpen, setIsOpen] = useState(false);
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
-
-  const handleLinkClick = () => {
-    setIsOpen(false); // Close the navbar when a link is clicked
-  };
+  const toggleMenu = () => setIsOpen(!isOpen);
+  const handleLinkClick = () => setIsOpen(false);
 
   return (
     <div className="navbar">
       <h1 className="logo">LEARNOFY</h1>
       
-      <div className={`nav_menu`}>
+      <div className="nav_menu">
         <ul className={`menus ${isOpen ? 'active' : ''}`}>
-          <Link href="./" passHref>
+          <Link href="/" passHref>
             <li onClick={handleLinkClick}>Home</li>
           </Link>
-          <Link href="../blog" passHref>
+          <Link href="/blog" passHref>
             <li onClick={handleLinkClick}>Blogs</li>
           </Link>
-          <Link href="../courses" passHref>
+          <Link href="/courses" passHref>
             <li onClick={handleLinkClick}>Courses</li>
           </Link>
-          <Link href="../dashboard" passHref>
+          <Link href="/dashboard" passHref>
             <li onClick={handleLinkClick}>Admin</li>
           </Link>
+          <li onClick={() => signOut()}>Logout</li>
         </ul>
-        <div className='mode_btn'>
+        <div className="mode_btn">
           <ModeToggle />
-          <Button className="toggle hammer" onClick={toggleMenu}>&#8801;</Button>
+          <Button className="toggle hammer" onClick={toggleMenu}>
+            &#8801;
+          </Button>
         </div>
       </div>
     </div>

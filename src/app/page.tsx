@@ -2,9 +2,21 @@ import { TextLoopBasic } from "@/components/BasicLoop";
 import { TextLoop } from "../../components/motion-primitives/text-loop";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { getServerSession } from "next-auth";
+import { authOptions } from "./api/auth/[...nextauth]/route";
 
 
-export default function Home() {
+export default async function Home() {
+  const session = await getServerSession(authOptions);
+
+  if (!session) {
+    return (
+      <>
+      <p>login please</p>
+      <Link href={'/signin'}><Button>Login</Button></Link>
+      </>
+    )
+  }
   return (
     <div>
       <section className="hero">
@@ -14,6 +26,7 @@ export default function Home() {
       <TextLoopBasic />
       <h2 className="text-center mt-5">Explore More!</h2>
       <div className="flex justify-center space-x-4 mt-2">
+        {session && <h2 className="text-center mt-5">Welcome {session?.user?.name}</h2>}
       <Link href={'/blog'}><Button>Blogs</Button></Link>
       <Link href={'/courses'}><Button>Course</Button></Link>
       </div>
