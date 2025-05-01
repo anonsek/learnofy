@@ -3,7 +3,7 @@ import { prisma } from '../../../lib/prisma'
 import { li } from 'motion/react-client';
 import { Card } from '@/components/ui/card';
 
-export default  async function page() {
+export default async function page() {
     const courses = await prisma.course.findMany();
   return (
     <div>
