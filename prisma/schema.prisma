@@ -1,0 +1,23 @@
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Post {
+  id String @id @default(cuid())
+  slug String
+  title String
+  content String
+}
+model Course {
+  id String @id @default(cuid())
+  slug String
+  name String
+  details String
+  imgUrl String
+}
