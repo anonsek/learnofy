@@ -23,13 +23,14 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({ children, }: Readonly<{ children: React.ReactNode; }>) {
   const session = await getServerSession(authOptions);
-  console.log("🚀 ~ RootLayout ~ session:", session)
+  // console.log("🚀 ~ RootLayout ~ session:", session)
 
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          {session && <Navbar />}
+          {/* {session && <Navbar user={session?.user} />} */}
+          <Navbar user={session?.user} />
           {children}
         </ThemeProvider>
       </body>

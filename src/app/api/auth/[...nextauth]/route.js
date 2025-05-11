@@ -31,10 +31,10 @@ export const authOptions = {
         // ✅ Return all fields you want in session
         return {
           id: user.id,
-          name: user.name,
+          // name: user.name,
           email: user.email,
           role: user.role,
-          course: user.course,
+          // course: user.courses,
         };
       }
     })
@@ -50,10 +50,10 @@ export const authOptions = {
     async jwt({ token, user }) {
       if (user) {
         token.id = user.id;
-        token.name = user.name;
+        // token.name = user.name;
         token.email = user.email;
         token.role = user.role;
-        token.course = user.course;
+        // token.course = user.course;
       }
       return token;
     },
@@ -61,9 +61,9 @@ export const authOptions = {
       if (token) {
         session.user.id = token.id;
         session.user.role = token.role;
-        session.user.course = token.course;
+        // session.user.course = token.course;
         session.user.email = token.email;
-        session.user.name = token.name;
+        // session.user.name = token.name;
       }
       return session;
     }
