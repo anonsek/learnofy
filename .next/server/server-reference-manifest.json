@@ -1,17 +1,5 @@
 {
-  "node": {
-    "406f2c9ec96d415aabbb1f67c02ec1a27e176bf8ce": {
-      "workers": {
-        "app/dashboard/new/page": {
-          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22D%3A%5C%5CProgramming%5C%5CPersonal%20Project%5C%5Clearnofy%5C%5Csrc%5C%5Clib%5C%5Cactions.ts%22%2C%5B%7B%22id%22%3A%22406f2c9ec96d415aabbb1f67c02ec1a27e176bf8ce%22%2C%22exportedName%22%3A%22addCourse%22%7D%5D%5D%5D&__client_imported__=!",
-          "async": false
-        }
-      },
-      "layer": {
-        "app/dashboard/new/page": "rsc"
-      }
-    }
-  },
+  "node": {},
   "edge": {},
   "encryptionKey": "9zPqb5uKcYhgFJJM3dDX4gb8heGbW25TVrONEkAGgYU="
 }
